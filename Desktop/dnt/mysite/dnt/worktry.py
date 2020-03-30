@@ -1,0 +1,1 @@
+#on click, 1. change to dif screen 2. show new total votes 3. increase counter
