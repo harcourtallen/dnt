@@ -1,0 +1,16 @@
+{
+  "name": "dnt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dnt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pusher": "^3.0.1"
+  }
+}

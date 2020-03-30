@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
-<html>
-    <header>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
         <title>#dnt</title>
         <link rel="stylesheet" type="text/css" href="dnt.css"/>
-    </header>
+    </head>
     <body class="contain">
         <div class="header">
             <h1>#dnt</h1>
@@ -17,9 +17,36 @@
         </div>
         <div class="send">
             <p><b>share this link</b> and make sure to vote for... well... definitely not trump</p>
-            <!-- <p><a href="" class="share_link">Share this link</a>, and make sure to vote for... well... definitely not trump</p> -->
         </div>
+        
         <script src="dnt.js"></script>
-        <!-- <script src="jquery-1.11.0.js"></script> -->
+        <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
+        <script>
+            const pusher = new Pusher('63b34341753068cff3f2', {
+                cluster: 'us2',
+                encrypted: true
+            })
+
+            const channel = pusher.subscribe('counter');
+
+            channel.bind('vote', data => {
+                let elem = document.querySelector(`#vote-${data.item}`),
+                votes = parseInt(elem.innerText);
+                elem.innerText = votes + 1;
+            });
+
+            const voteButtons = document.getElementById("vote");
+
+            function voteItem() {
+                let vote_id = this.getAttribute("data-vote");
+                fetch(`/vote?item_id=${vote_id}`).catch( e => { console.log(e); });
+            }
+
+            (function() {
+                for (var i = 0; i <voteButtons.clientHeight; i++) {
+                    voteButtons[i].addEventListener('click', voteItem);
+                }
+            })();
+        </script>
     </body>
 </html>

@@ -11,17 +11,17 @@ function showVotes() {
 vote_button.onclick = showVotes;
 
 
-var counter = 0;
-var xhr = new XMLHttpRequest();
+// var counter = 0;
+// var xhr = new XMLHttpRequest();
 
-xhr.onload = function showVotes() {
-    if(xhr.status == 200) {
-        counter += 1;
-        document.getElementById('vote_nums').innerHTML = counter;
-        document.getElementById('vote_nums').className = counting;
-    }
-}
+// xhr.onload = function showVotes() {
+//     if(xhr.status == 200) {
+//         counter += 1;
+//         document.getElementById('vote_nums').innerHTML = counter;
+//         document.getElementById('vote_nums').className = counting;
+//     }
+// }
 
-vote_button.onclick = showVotes;
-xhr.open('GET', 'dnt.html', true);
-xhr.send(null);
+// vote_button.onclick = showVotes;
+// xhr.open('GET', 'dnt.html', true);
+// xhr.send(null);
